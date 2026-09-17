@@ -138,3 +138,61 @@ body {
 .btn-cadastrar:hover {
     background-color: var(--verde-escuro);
 }
+
+/* Menu Hamburguer */
+
+.hamburguer {
+    display: none; 
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* some no descktop, aparece somente no mobile. */
+.nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 16px 24px;
+    gap: 16px;
+}
+/* display: none / Oculta elemento */
+
+@media (max-width: 768px) {
+    .hamburguer {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Classe que o JavaScript vai adicionar/remover para mostrar o menu */
+    .nav.ativo {
+        display: flex;
+    }
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    border-top: 11px solid var(--cor-borda);
+    padding-top: 16px;
+    width: 100%;
+}
+
+.nav-actions .btn {
+    flex: 1;
+/* Os dois botoes dividem a largura igualmente. */
+}
