@@ -10,6 +10,11 @@
     --texto-secundario: #475569;   /* Cinza intermediário pra textos secundários e legendas */
     --cor-borda: #E5E7EB;          /* Cinza bem clarinho só pra desenhar linhas e bordas discretas */
     --cor-fundo: #FFFFFF;          /* Cor do fundo da página (branco puro) */
+
+    --azul-marinho: #0B1E4F;
+    --azul-hover:  #1E40AF;
+    --azul-claro: #DBEAFE;
+    --funso-suave: #F5F8FF;
 }
 
 /*
@@ -195,4 +200,112 @@ body {
 .nav-actions .btn {
     flex: 1;
 /* Os dois botoes dividem a largura igualmente. */
+}
+
+/* Hero
+Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.hero{
+    background-color: var(--funso-suave);
+    padding: 64px 0 80px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.hero-iner{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-etiqueta {
+    display: inline-block;
+    background-color: var(--auzl-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-título {
+    color: var(--azul-marinho);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom:20px;
+}
+
+/*  Coluna da esquerda  */
+.hero-etiqueta {
+    display: inline-block;
+    background-color: var(--auzl-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-título{
+    color: var(--azul-marinho);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-descricao {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 440px;
+    margin-bottom: 32px;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.btn-grande {
+    font-size: 15px;
+    padding: 14px 28px;
+    text-transform: uppercase;
+    gap: 8px;
+}
+
+.btn-primario {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+}
+
+.btn-contorno {
+    background-color: var(--cor-fundo);
+    color: var(--azul-escuro);
+    border: 1.5px solid var(--azul-escuro);
+    transform: scale(1.05);
 }
