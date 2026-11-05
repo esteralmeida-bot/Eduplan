@@ -1,127 +1,129 @@
-/* AS CORES DO SITE (:root)
-   Aqui criamos apelidos pras cores. Se precisar trocar o tom de azul 
-   do site inteiro amanhã, eu só mudo a cor aqui e pronto! */
-:root {
-    --azul-escuro: #1D4ED8;        /* Azul mais forte pra quando passa o mouse por cima (hover) */
-    --azul: #2463EB;               /* O azul principal (botões, links, destaques) */
-    --verde: #16A34A;              /* Verde pra avisos de sucesso e confirmações */
-    --verde-escuro: #15803D;       /* Verde mais escuro pro hover dos botões verdes */
-    --texto-principal: #0F172A;    /* Um quase preto (fica bem mais suave pra ler do que preto puro) */
-    --texto-secundario: #475569;   /* Cinza intermediário pra textos secundários e legendas */
-    --cor-borda: #E5E7EB;          /* Cinza bem clarinho só pra desenhar linhas e bordas discretas */
-    --cor-fundo: #FFFFFF;          /* Cor do fundo da página (branco puro) */
+/* Variáveis de CSS */
+/* 
+Aqui a gente guarda as cores do site em um só lugar. 
+Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos os lugares que a usam.
+*/
 
+:root {
+    --azul-escuro: #1D4ED8;
+    --azul: #2563EB;
+    --verde: #16A34A;
+    --verde-escuro: #15803D;
+    --texto-principal: #0F172A;
+    --texto-secundario: #475569;
+    --cor-borda: #E5E7EB;
+    --cor-fundo: #FFFFFF;
+
+    /* NOVAS Variáveis */
     --azul-marinho: #0B1E4F;
-    --azul-hover:  #1E40AF;
+    --azul-hover: #1E40AF;
     --azul-claro: #DBEAFE;
-    --funso-suave: #F5F8FF;
+    --fundo-suave: #F5F8FF;
 }
 
-/*
-   LIMPEZA PADRÃO (*)
-   Cada navegador coloca suas próprias margens e tamanhos nos elementos. 
-   Aqui eu zerei tudo pra começar a desenhar do zero sem surpresas!
-*/
+/* O "*" seleciona TODOS os elementos da página */
 * {
-    /* Faz o tamanho do elemento incluir a borda e o padding. 
-       Sem isso, colocar um padding faz a caixa aumentar de tamanho e quebrar o layout! */
-    box-sizing: border-box; 
-    
-    /* Tira as margens e espaçamentos padrão do navegador */
-    margin: 0;
+    box-sizing: border-box; /* Faz o padding e a borda ficarem dentro do tamanho do que a gente define pro elemento, e não somados a ele */
+
+    /* Reseta o espaçamento padrão do navegador */
+    margin: 0; 
     padding: 0;
 }
 
-/* ESTILO DO CORPO DA PÁGINA (body) */
 body {
-    /* Define a fonte Inter pro site todo. Se o dispositivo não tiver, usa a padrão sem serifa */
-    font-family: "Inter", sans-serif;
-    color: var(--texto-principal);
+    font-family: "Inter", sans-serif; /* Tipo de fonte do projeto */
+    color: var(--texto-principal); /* Cor da fonte */
 }
 
-/* A BARRA DO CABEÇALHO (.header) */
 .header {
-    /* Faz o cabeçalho "grudar" na tela enquanto você rola a página pra baixo */
-    position: sticky;  
-    top: 0;                        /* Cola ele bem no topo */
-    /* Coloca o cabeçalho em uma "camada" alta (100) pra nada passar por cima dele */
-    z-index: 100;
-    /* Cor de fundo usando a variável (foi corrigido a falta da função var() aqui!) */
-    background-color: var(--cor-fundo); 
-    /* Linha bem fina embaixo só pra separar a barra do resto do site */
-    border-bottom: 1px solid var(--cor-borda);
+    position: sticky; /* Faz o cabeçalho "grudar no topo da tela"*/
+    top: 0; /* Coladinho no topo */
+    z-index: 100; /* ordem de empilhamento (camadas) */
+    background-color: var(--cor-fundo); /* Cor de fundo */
+    border-bottom: 1px solid var(--cor-borda); /* Borda inferior */
 }
 
-/* O CONTEÚDO DENTRO DO CABEÇALHO (.header-inner) */
 .header-inner {
-    /* Em monitores gigantes, não deixa a barra espalhar o conteúdo além de 1200px */
-    max-width: 1200px;
-    
-    /* O truque clássico pro bloco ficar bem centralizado no meio da tela */
-    margin: 0 auto;
-    
-    /* Dá uma folguinha nas laterais pra logo/menu não colarem no canto da tela do celular */
-    padding: 0 24px;
-    
-    /* Ativa o Flexbox: o jeito moderno de alinhar elementos lado a lado */
-    display: flex;
-    
-    /* Deixa os itens alinhados bem no meio da altura (centro vertical) */
-    align-items: center;
-    
-    /* Joga a logo pra ponta esquerda e o menu/botão lá pra ponta direita */
-    justify-content: space-between;
-    
-    /* Garante um espaço mínimo de 24px entre os elementos pra não grudarem se a tela encolher */
-    gap: 24px;
+    max-width: 1200px; /* O conteúdo não ultrapassa 1200px de largura */
+    margin: 0 auto; /* margem 0 em cima/baixo e "auto" nas laterais */
+    padding: 0 24px; /* espaço interno: 0 em cima/baixo e 24px nas laterais */
+
+    /* Aplicação do Flexbox */
+
+    display: flex; /* Transforma essa div em um "container flexivel". Isso é o que permite colocar logo, menu e botões um do lado do outro */
+
+    align-items: center; /* Alinha os itens no CENTRO verticalmente dentro do header */
+
+    justify-content: space-between; /* Distribui os itens: o primeiro cola na esquerda, o último cola na direita, e sobra espaço entre eles */
+
+    gap: 24px; /* Espaço mínimo entre os itens (logo, menu e botões) */
 }
+
+/* Logo */
 
 .logo {
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   font-size: 20px;
-   font-weight: 800;
-   color: var(--texto-principal);
-   text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px; /* Tamanho da fonte*/
+    font-weight: 800;
+    color: var(--texto-principal);
+    text-decoration: none; /* Essa linha remove o sublinhado que o navegador coloca em links por padrão */
 }
 
 .logo img {
-   width: 80px;
+    width: 80px; /* Define a largura da imagem da logo. */
 }
 
-/*  Menu de Navegação (.nav) */
+/* Menu de navegação */
+
 .nav {
     display: flex;
     align-items: center;
     gap: 32px;
-    list-style: none;  /* Tira os pontinhos da lista */
+    list-style: none; /* O menu é uma lista (ul), e por padrão listas mostram bolinhas antes de cada item. Essa propriedade remove as bolinhas */
 
+    /* Zera espaçamentos padrão que o navegador aplica em listas */
     margin: 0;
     padding: 0;
-    transition: color 0.2s ease; /* Transição suave de cor ao passar o mouse */
-    color: var(--texto-principal);
-    white-space: nowrap; /* Evita que os links quebrem em várias linhas */
 }
 
+.nav a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 0; /* Um respiro em cima e embaixo do texto do link, facilitando o clique */
+    transition: color .2s ease; /* Diz ao navegador: quando a cor mudar (por exemplo no hover), faça essa mudança suave, em 0,2 segundos, em vez de trocar a cor de forma brusca */
+    white-space: nowrap; /* Impede que o texto do link quebre em duas linhas caso o espaço fique apertado */
+}
+
+/* :hover é aplicado quando o mouse passa por cima do link */
 .nav a:hover {
-    color: var(--azul);
+    color: var(--texto-principal);
 }
 
-.action {
+/* Botões (Entrar / Cadastrar ) */
+
+.actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
+/* Estilo BASE, compartilhado pelos dois botões */ 
+
 .btn {
-    font-family: inherit; /* Herda a fonte do site */
+    font-family: inherit;
     font-size: 14px;
     font-weight: 600;
-    border-radius: 1px solid transparent;
+    border-radius: 8px; /* Arredonda os cantos do botão */
     padding: 10px 18px;
     cursor: pointer;
+    border: 1px solid transparent;
     text-decoration: none;
+
+    /* Centralizam o texto dentro do botão, tanto na horizontal quanto na vertical */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -130,14 +132,16 @@ body {
 .btn-entrar {
     background-color: var(--cor-fundo);
     color: var(--texto-principal);
-    border-color: var(--texto-principal);
+    border-color: var(--cor-borda);
 }
+
 .btn-entrar:hover {
     border-color: var(--texto-principal);
 }
+
 .btn-cadastrar {
     background-color: var(--verde);
-    color: #000000;
+    color: #FFF;
 }
 
 .btn-cadastrar:hover {
@@ -147,63 +151,69 @@ body {
 /* Menu Hamburguer */
 
 .hamburguer {
-    display: none; 
+    display: none; /* Ocultando botão do menu */
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
 }
 
-/* some no descktop, aparece somente no mobile. */
-.nav {
+/* Some no desktop, só existe no mobile */
+.nav-actions {
     display: none;
-    flex-direction: column;
-    width: 100%;
-
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--cor-fundo);
-    border-bottom: 1px solid var(--cor-borda);
-    padding: 16px 24px;
-    gap: 16px;
 }
-/* display: none / Oculta elemento */
 
 @media (max-width: 768px) {
     .hamburguer {
         display: block;
     }
 
+    .actions {
+        display: none;
+        /* Os botões originais do header somem no
+        mobile, porque agora eles moram dentro do
+        menu */
+    }
+
     .nav {
         display: none;
         flex-direction: column;
         width: 100%;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-borda);
+        padding: 16px 24px;
+        gap: 16px;
     }
 
     /* Classe que o JavaScript vai adicionar/remover para mostrar o menu */
     .nav.ativo {
         display: flex;
     }
+
+    .nav-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+        border-top: 1px solid var(--cor-borda);
+        padding-top: 16px;
+        width: 100%;
+    }
+
+    .nav-actions .btn {
+        flex: 1;
+        /* Os dois botões dividem a largura igualmente */
+    }
 }
 
-.nav-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 8px;
-    border-top: 11px solid var(--cor-borda);
-    padding-top: 16px;
-    width: 100%;
-}
+/* HERO */
 
-.nav-actions .btn {
-    flex: 1;
-/* Os dois botoes dividem a largura igualmente. */
-}
-
-/* Hero
-Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
+/* Icones do Google: Deixamos o tamanho padrão menor e alinhado 
+ao texto */
 .material-symbols-outlined {
     font-size: 20px;
     line-height: 1;
@@ -211,85 +221,75 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
     width: 1em;
     overflow: hidden;
     white-space: nowrap;
-    flex-shrink: 0;
+    flex-shrink: 0; /* O ícone nunca encolhe dentro de um flex */
 }
 
-.hero{
-    background-color: var(--funso-suave);
-    padding: 64px 0 80px;
+.hero {
+    background-color: var(--fundo-suave);
+    padding: 64px 0 80px; /* 64px em cima, 0 nas laterais, 80px embaixo*/
     border-bottom: 1px solid var(--cor-borda);
 }
 
-.hero-iner{
+/* Aqui usaremos o GRID, "irmão" do Flexbox
+-> Flexbox organiza em UMA direção; Grid organiza em colunas E linhas 
+*/
+.hero-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 
     display: grid;
+    /* "fr" = fração do espaço disponivel */
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
     align-items: center;
     gap: 48px;
 }
 
+/* Coluna da Esquerda */
+
 .hero-etiqueta {
     display: inline-block;
-    background-color: var(--auzl-claro);
+    background-color: var(--azul-claro);
     color: var(--azul-escuro);
     font-size: 12px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: uppercase; /* Deixa o texto em MAIÚSCULAS */
+    letter-spacing: 0.5px; /* Um pouco de espaço entre as letras */
     padding: 6px 12px;
     border-radius: 6px;
     margin-bottom: 20px;
 }
 
-.hero-título {
-    color: var(--azul-marinho);
-    font-size: 54px;
-    font-weight: 800;
-    line-height: 1.05;
-    text-transform: uppercase;
-    margin-bottom:20px;
-}
-
-/*  Coluna da esquerda  */
-.hero-etiqueta {
-    display: inline-block;
-    background-color: var(--auzl-claro);
-    color: var(--azul-escuro);
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-}
-
-.hero-título{
+.hero-titulo {
     color: var(--azul-marinho);
     font-size: 54px;
     font-weight: 800;
     line-height: 1.05;
     text-transform: uppercase;
     margin-bottom: 20px;
+}
+
+.hero-titulo span {
+    color: var(--azul-escuro);
+    display: block;
 }
 
 .hero-descricao {
     font-size: 18px;
     line-height: 1.5;
     color: var(--texto-secundario);
-    max-width: 440px;
+    max-width: 440px; /* Impede que a linha fique muito comprida*/
     margin-bottom: 32px;
 }
 
 .hero-botoes {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Se não couber, o segundo botão desce p/ baixo */
     margin-bottom: 32px;
 }
+
+/* Versão maior do botão */
 
 .btn-grande {
     font-size: 15px;
@@ -305,18 +305,19 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
 
 .btn-primario:hover {
     background-color: var(--azul-hover);
-} 
+}
 
 .btn-contorno {
     background-color: var(--cor-fundo);
     color: var(--azul-escuro);
     border: 1.5px solid var(--azul-escuro);
-    transform: scale(1.05);
 }
 
 .btn-contorno:hover {
     background-color: var(--azul-claro);
 }
+
+/* Faixa com as 3 vantagens */
 
 .hero-vantagens {
     list-style: none;
@@ -329,7 +330,7 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
 }
 
 .hero-vantagens li {
-    flex: 1;
+    flex: 1; /* Os 3 itens dividem a largura igualmente*/
     display: flex;
     align-items: center;
     gap: 10px;
@@ -339,6 +340,9 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
     color: var(--texto-secundario);
 }
 
+/* Linha divisória entre os itens 
+"li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º)
+*/
 .hero-vantagens li + li {
     border-left: 1px solid var(--cor-borda);
 }
@@ -351,10 +355,11 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
 .hero-vantagens strong {
     display: block;
     color: var(--texto-principal);
-    font-weight: 600px;
+    font-weight: 600;
 }
 
-/* coluna da direita */
+/* Coluna da direita: Imagem do Dashboard */
+
 .hero-imagem {
     width: 100%;
     height: auto;
@@ -362,5 +367,5 @@ Icones do google: deixamos o tamanho padrao menor e alinhado ao texto */
     background-color: var(--cor-fundo);
     border: 2px solid var(--texto-principal);
     border-radius: 14px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.88);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
